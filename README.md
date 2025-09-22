@@ -266,6 +266,94 @@ pip install tabula-py
 - Batch processing for multiple PDFs
 - Advanced filtering and search
 
+## 🚀 Deploy to Vercel
+
+### Option 1: One-Click Deploy
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/pdf-financial-analyzer)
+
+### Option 2: Manual Deployment
+
+#### Prerequisites
+- [Vercel account](https://vercel.com/signup)
+- [Vercel CLI](https://vercel.com/cli) (optional but recommended)
+
+#### Step-by-Step Deployment
+
+1. **Prepare your project**
+   ```bash
+   # Make sure all files are ready
+   git add .
+   git commit -m "Prepare for Vercel deployment"
+   git push origin main
+   ```
+
+2. **Deploy via GitHub (Recommended)**
+   - Push your code to GitHub
+   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
+   - Click "New Project"
+   - Import your GitHub repository
+   - Vercel will automatically detect the configuration
+
+3. **Deploy via Vercel CLI**
+   ```bash
+   # Install Vercel CLI
+   npm i -g vercel
+   
+   # Login to Vercel
+   vercel login
+   
+   # Deploy
+   vercel
+   
+   # For production deployment
+   vercel --prod
+   ```
+
+#### Deployment Files Included
+- `vercel.json` - Vercel configuration
+- `main.py` - FastAPI application optimized for Vercel
+- `runtime.txt` - Python version specification
+- `requirements.txt` - Updated with FastAPI dependencies
+
+#### Environment Variables
+No environment variables are required for basic functionality. For advanced features, you may set:
+- `EXCHANGE_API_KEY` - For real-time currency rates (optional)
+
+#### Post-Deployment
+After successful deployment:
+1. Your app will be available at `https://your-project.vercel.app`
+2. Test the upload functionality
+3. Verify currency conversion works
+4. Check that all features are accessible
+
+#### Troubleshooting Deployment
+
+**Common Issues:**
+
+1. **Build Timeout**
+   - Increase timeout in `vercel.json` (already set to 60s)
+   - Consider using serverless functions for heavy processing
+
+2. **File Size Limits**
+   - Vercel has a 250MB limit for serverless functions
+   - Large PDFs might need chunked processing
+
+3. **Java Dependencies (for tabula-py)**
+   - Vercel includes Java runtime
+   - If issues persist, consider switching to pdfplumber
+
+**Alternative: Using Railway**
+If Vercel doesn't work well for your use case, consider Railway:
+```bash
+# Install Railway CLI
+npm install -g @railway/cli
+
+# Login and deploy
+railway login
+railway init
+railway up
+```
+
 ## 📄 License
 
 This project is open source and available under the MIT License.

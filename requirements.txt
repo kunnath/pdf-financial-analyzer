@@ -5,3 +5,7 @@ tabula-py
 PyPDF2
 openpyxl
 numpy
+fastapi
+uvicorn[standard]
+python-multipart
+jinja2
